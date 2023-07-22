@@ -26,7 +26,9 @@
 --main-gap:5vw;
 --side-width:200px;
 --li-padding:2rem;
---experience-width:calc(100vw - calc(var(--main-gap)) + var(--side-width)  + var(--li-padding))
+--experience-width:calc(100vw - calc(var(--main-gap)) + var(--side-width)  + var(--li-padding));
+
+--jobs-count:5;
 }
 
 *,*::after,*::before{
@@ -144,7 +146,7 @@ img{
     max-width:var(--experience-width);
     position: relative;
     display: grid;
-    grid-template-columns:repeat(4 , minmax(350px,1fr));
+    grid-template-columns:repeat(var(--jobs-count)  , minmax(350px,1fr)) 100px;
     gap:2rem;
     padding: 2rem 0 1rem 0 ;
     overflow-x: auto;
@@ -165,7 +167,7 @@ img{
     background-color: var(--clr-primary-800);
 }
 
-.job{
+.job:not(.empty-job-for-padding){
     padding: 1rem;
     background: var(--clr-primary-800);
     border: .1px solid var(--clr-neutral-50);
